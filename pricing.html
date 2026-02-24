@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pricing | ChatVolt</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Razorpay -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<!-- Stripe -->
+<script src="https://js.stripe.com/v3/"></script>
+
+<style>
+body { font-family: 'Poppins', sans-serif; }
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+.float { animation: float 4s ease-in-out infinite; }
+.float-slow { animation: float 6s ease-in-out infinite; }
+</style>
+</head>
+
+<body class="bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700 min-h-screen flex flex-col relative overflow-x-hidden">
+
+<!-- FLOATING ICONS -->
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+     class="w-16 absolute top-24 left-10 float opacity-80">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png"
+     class="w-14 absolute bottom-20 right-16 float-slow opacity-70">
+
+<!-- NAVBAR -->
+<header class="bg-white/10 backdrop-blur-md sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <a href="index.html" class="text-2xl font-extrabold text-white">
+      ⚡ ChatVolt
+    </a>
+
+    <nav class="space-x-6 text-white font-semibold">
+      <a href="index.html" class="hover:text-yellow-300">Home</a>
+      <a href="dashboard.html" class="hover:text-yellow-300">Dashboard</a>
+      <a href="pricing.html" class="text-yellow-300">Pricing</a>
+      <a href="login.html" class="hover:text-yellow-300">Login</a>
+    </nav>
+  </div>
+</header>
+
+<main class="flex-grow">
+
+<!-- PRICING -->
+<section class="container mx-auto py-20 px-6 text-white">
+  <h1 class="text-5xl font-bold text-center mb-4">
+    Simple, Transparent Pricing
+  </h1>
+  <p class="text-center text-indigo-100 mb-16 text-lg">
+    Choose the perfect plan for your business. Cancel anytime.
+  </p>
+
+  <div class="grid md:grid-cols-3 gap-10">
+
+    <!-- FREE -->
+    <div class="bg-white text-gray-800 rounded-2xl shadow-xl p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Free</h2>
+      <p class="text-gray-600 mb-4">For testing & small sites</p>
+      <p class="text-4xl font-bold mb-6">₹0</p>
+
+      <ul class="space-y-3 mb-6 text-gray-600">
+        <li>✔ 100 messages / month</li>
+        <li>✔ Basic chatbot</li>
+        <li>✔ ChatVolt branding</li>
+      </ul>
+
+      <button disabled
+        class="w-full bg-gray-300 text-gray-600 font-bold py-3 rounded cursor-not-allowed">
+        Current Plan
+      </button>
+    </div>
+
+    <!-- BASIC -->
+    <div class="bg-white text-gray-800 rounded-2xl shadow-2xl p-8 text-center border-4 border-indigo-600 transform scale-105">
+      <h2 class="text-2xl font-bold mb-2 text-indigo-600">Basic</h2>
+      <p class="text-gray-600 mb-4">Best for growing websites</p>
+      <p class="text-4xl font-bold mb-6">₹999<span class="text-lg">/mo</span></p>
+
+      <ul class="space-y-3 mb-6 text-gray-600">
+        <li>✔ 5,000 messages / month</li>
+        <li>✔ No branding</li>
+        <li>✔ Email support</li>
+      </ul>
+
+      <button onclick="subscribe('basic')"
+        class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition">
+        Buy Basic
+      </button>
+    </div>
+
+    <!-- PRO -->
+    <div class="bg-white text-gray-800 rounded-2xl shadow-xl p-8 text-center">
+      <h2 class="text-2xl font-bold mb-2">Pro</h2>
+      <p class="text-gray-600 mb-4">For businesses & startups</p>
+      <p class="text-4xl font-bold mb-6">₹2999<span class="text-lg">/mo</span></p>
+
+      <ul class="space-y-3 mb-6 text-gray-600">
+        <li>✔ 20,000 messages / month</li>
+        <li>✔ Priority support</li>
+        <li>✔ Advanced analytics</li>
+      </ul>
+
+      <button onclick="subscribe('pro')"
+        class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition">
+        Buy Pro
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ENTERPRISE CTA -->
+<section class="bg-white py-20 text-center">
+  <div class="container mx-auto px-6 max-w-3xl">
+    <h2 class="text-4xl font-bold text-gray-800 mb-4">
+      Need Enterprise Features?
+    </h2>
+    <p class="text-gray-600 mb-8 text-lg">
+      Unlimited messages, custom integrations & dedicated support.
+    </p>
+    <a href="mailto:support@chatvolt.ai"
+       class="inline-block bg-indigo-600 text-white font-bold px-10 py-4 rounded-full hover:bg-indigo-700 transition shadow-lg">
+      Contact Sales
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-black/40 backdrop-blur-md text-gray-200 py-8 text-center">
+  <p class="font-semibold">© 2026 ChatVolt</p>
+  <p class="text-sm opacity-80">AI Chat Widgets for Modern Businesses</p>
+</footer>
+
+<!-- PAYMENT LOGIC (UNCHANGED) -->
+<script>
+const PAYMENT_GATEWAY = "razorpay"; // or "stripe"
+const RAZORPAY_KEY = "rzp_test_XXXXXXXXXX";
+const STRIPE_KEY = "pk_test_XXXXXXXXXXXX";
+const stripe = Stripe(STRIPE_KEY);
+
+function subscribe(plan) {
+  PAYMENT_GATEWAY === "razorpay"
+    ? razorpayCheckout(plan)
+    : stripeCheckout(plan);
+}
+
+function razorpayCheckout(plan) {
+  const amount = plan === "basic" ? 99900 : 299900;
+
+  new Razorpay({
+    key: RAZORPAY_KEY,
+    amount,
+    currency: "INR",
+    name: "ChatVolt",
+    description: plan.toUpperCase() + " Plan",
+    handler: res => alert("Payment Successful\nID: " + res.razorpay_payment_id),
+    theme: { color: "#6366f1" }
+  }).open();
+}
+
+function stripeCheckout(plan) {
+  fetch("/create-stripe-session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ plan })
+  })
+  .then(res => res.json())
+  .then(data => stripe.redirectToCheckout({ sessionId: data.id }));
+}
+</script>
+
+</body>
+</html>
