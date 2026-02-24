@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | ChatVolt</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .float { animation: float 4s ease-in-out infinite; }
+    .float-slow { animation: float 6s ease-in-out infinite; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700 min-h-screen relative overflow-hidden">
+
+<!-- FLOATING ICONS -->
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+     class="w-16 absolute top-20 left-20 float opacity-80">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png"
+     class="w-14 absolute bottom-20 right-20 float-slow opacity-70">
+
+<!-- NAVBAR -->
+<header class="bg-white/10 backdrop-blur-md shadow-md sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    
+    <a href="index.html" class="text-2xl font-extrabold text-white">
+      ⚡ ChatVolt
+    </a>
+
+    <a href="signup.html"
+       class="bg-yellow-400 text-indigo-900 px-5 py-2 rounded-full font-bold hover:scale-105 transition">
+      Get Started
+    </a>
+
+  </div>
+</header>
+
+<!-- LOGIN SECTION -->
+<section class="flex items-center justify-center min-h-[calc(100vh-80px)] px-4">
+  
+  <div class="bg-white/95 backdrop-blur-xl shadow-2xl rounded-2xl p-8 w-full max-w-md">
+
+    <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6">
+      Welcome Back
+    </h2>
+
+    <input id="email" type="email" placeholder="Email"
+      class="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none">
+
+    <input id="password" type="password" placeholder="Password"
+      class="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none">
+  
+    <p class="text-right mb-4">
+      <a href="#" id="forgotPassword"
+         class="text-indigo-600 text-sm font-semibold hover:underline">
+        Forgot Password?
+      </a>
+    </p>
+
+    <button id="loginBtn"
+      class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition">
+      Login
+    </button>
+
+    <p class="text-center text-gray-600 mt-4">
+      New here?
+      <a href="signup.html" class="text-indigo-600 font-semibold hover:underline">
+        Create account
+      </a>
+    </p>
+
+  </div>
+</section>
+
+<!-- FIREBASE AUTH (FUNCTIONS SAME) -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { 
+    getAuth, 
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail
+  } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    
+    projectId: 
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // LOGIN (same logic)
+  document.getElementById("loginBtn").onclick = () => {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => window.location.href = "dashboard.html")
+      .catch(err => alert(err.message));
+  };
+
+  // FORGOT PASSWORD (same logic)
+  document.getElementById("forgotPassword").onclick = () => {
+    const email = document.getElementById("email").value;
+
+    if (!email) {
+      alert("Please enter your email first");
+      return;
+    }
+
+    sendPasswordResetEmail(auth, email)
+      .then(() => alert("Password reset link sent to your email 📩"))
+      .catch(err => alert(err.message));
+  };
+</script>
+
+</body>
+</html>
