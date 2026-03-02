@@ -3,13 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ChatVolt | AI Chatbot for Websites</title>
+<title>ChatVolt | WhatsApp AI Support System</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-body { font-family: 'Poppins', sans-serif; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #1a0f3c, #120b2e);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
 
 /* Floating animation */
 @keyframes float {
@@ -18,202 +28,165 @@ body { font-family: 'Poppins', sans-serif; }
   100% { transform: translateY(0px); }
 }
 
-.float {
-  animation: float 4s ease-in-out infinite;
-}
+.float { animation: float 4s ease-in-out infinite; }
+.float-slow { animation: float 6s ease-in-out infinite; }
 
-.float-slow {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Glow button */
-.glow:hover {
-  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(139,92,246,.5);
+  transform: scale(1.05);
+  transition: .3s;
 }
 </style>
 </head>
 
-<body class="bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700 text-white overflow-x-hidden">
+<body class="text-white overflow-x-hidden">
 
 <!-- NAVBAR -->
-<header class="bg-white shadow-md sticky top-0 z-50">
-  <div class="container mx-auto flex justify-between items-center p-4">
-
-    <a href="index.html" class="text-2xl font-bold text-indigo-600">
-      ChatWidgetPro
+<header class="glass sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center p-5">
+    <a href="index.html" class="text-2xl font-bold text-purple-400">
+      ⚡ ChatVolt
     </a>
 
-    <div class="space-x-6 font-semibold text-gray-700">
-      <a href="pricing.html" class="hover:text-indigo-600">Pricing</a>
-      <a href="login.html" class="hover:text-indigo-600">Login</a>
+    <div class="space-x-6 font-medium">
+      <a href="pricing.html" class="hover:text-purple-400 transition">Pricing</a>
+      <a href="login.html" class="hover:text-purple-400 transition">Login</a>
       <a href="signup.html"
-         class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+         class="bg-purple-600 px-5 py-2 rounded-lg hover:bg-purple-700 transition">
          Get Started
       </a>
     </div>
-
   </div>
 </header>
 
 <!-- HERO -->
-<section class="min-h-screen flex items-center relative px-6">
+<section class="min-h-screen flex items-center px-6">
   <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-    <!-- Left Content -->
-    <div class="space-y-6">
-      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
-        Power Your Website with  
-        <span class="text-yellow-300">AI Chat</span>
+    <div>
+      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+        24/7 WhatsApp  
+        <span class="text-purple-400">AI Support System</span>
       </h1>
-      <p class="text-lg opacity-90">
-        Add a smart AI chatbot to your website in just 5 minutes. 
-        Automate support, capture leads, and boost conversions.
+
+      <p class="text-gray-300 text-lg mb-8">
+        Connect your WhatsApp Business number and automate customer
+        replies, capture leads, and manage follow-ups from one dashboard.
       </p>
 
       <div class="space-x-4">
-        <a href="#" class="bg-yellow-400 text-indigo-900 px-8 py-4 rounded-full font-bold glow transition">
-          Start Free Trial
+        <a href="signup.html"
+           class="bg-purple-600 px-8 py-4 rounded-xl font-semibold hover-glow transition">
+           Start Free Trial
         </a>
-        <a href="#about" class="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-indigo-600 transition">
-          Learn More
+
+        <a href="pricing.html"
+           class="border border-purple-400 px-8 py-4 rounded-xl hover:bg-purple-600 transition">
+           View Plans
         </a>
       </div>
     </div>
 
-    <!-- Right Animated Graphics -->
+    <!-- Visual -->
     <div class="relative flex justify-center items-center">
 
-      <!-- Main Chat Bubble -->
-      <div class="bg-white text-gray-800 p-6 rounded-2xl shadow-2xl w-64 float">
-        <p class="font-semibold">Hi 👋 How can I help you?</p>
+      <div class="glass p-8 rounded-2xl shadow-2xl w-72 float">
+        <p class="text-gray-200">👋 Hello! How can we help you today?</p>
       </div>
 
-      <!-- Floating WhatsApp Icons -->
       <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-           class="w-16 absolute -top-10 left-10 float-slow"
-           alt="WhatsApp Icon">
-
-      <img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png"
-           class="w-14 absolute bottom-10 -right-10 float"
-           alt="Chat Icon">
+           class="w-16 absolute -top-10 left-10 float-slow">
 
       <img src="https://cdn-icons-png.flaticon.com/512/9068/9068672.png"
-           class="w-12 absolute top-20 right-0 float-slow"
-           alt="Bot Icon">
-
+           class="w-14 absolute bottom-10 -right-10 float">
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="bg-white text-gray-800 py-20">
+<!-- FEATURES -->
+<section class="py-20">
   <div class="container mx-auto text-center px-6">
-    <h2 class="text-4xl font-bold mb-6">Why Choose ChatVolt?</h2>
-    <p class="max-w-3xl mx-auto text-lg text-gray-600 mb-12">
-      ChatVolt lets you deploy a powerful AI chatbot with just one script.
-      Manage conversations, users and subscriptions from a clean dashboard.
-    </p>
+    <h2 class="text-4xl font-bold mb-12 text-purple-400">
+      Everything You Need
+    </h2>
 
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="p-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl shadow hover:scale-105 transition">
-        ⚡ <h3 class="font-bold text-xl mt-4">Instant Setup</h3>
-        <p class="text-gray-600 mt-2">Live in under 5 minutes</p>
+
+      <div class="glass p-8 rounded-2xl hover-glow">
+        <h3 class="text-xl font-bold mb-4">📲 WhatsApp Integration</h3>
+        <p class="text-gray-300">
+          Connect your business number in minutes.
+        </p>
       </div>
 
-      <div class="p-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl shadow hover:scale-105 transition">
-        💬 <h3 class="font-bold text-xl mt-4">Smart AI Replies</h3>
-        <p class="text-gray-600 mt-2">Human-like conversations</p>
+      <div class="glass p-8 rounded-2xl hover-glow">
+        <h3 class="text-xl font-bold mb-4">📊 Lead Dashboard</h3>
+        <p class="text-gray-300">
+          Track leads, status, and customer conversations.
+        </p>
       </div>
 
-      <div class="p-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl shadow hover:scale-105 transition">
-        📊 <h3 class="font-bold text-xl mt-4">Analytics Dashboard</h3>
-        <p class="text-gray-600 mt-2">Track growth & performance</p>
+      <div class="glass p-8 rounded-2xl hover-glow">
+        <h3 class="text-xl font-bold mb-4">⏰ Smart Follow-Ups</h3>
+        <p class="text-gray-300">
+          Schedule automatic reminders & increase conversions.
+        </p>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="py-20 text-center bg-gradient-to-r from-purple-600 to-indigo-600">
+<section class="py-20 text-center">
   <h2 class="text-4xl font-bold mb-6">
-    Ready to Boost Your Website?
+    Ready to Automate Your WhatsApp?
   </h2>
-  <a href="#" class="bg-yellow-400 text-indigo-900 px-10 py-5 rounded-full font-bold text-lg hover:scale-110 transition">
-    Create Free Account
+
+  <a href="signup.html"
+     class="bg-purple-600 px-10 py-5 rounded-xl font-bold text-lg hover-glow transition">
+     Create Free Account
   </a>
 </section>
 
 <!-- FOOTER -->
-<!-- FOOTER -->
-<footer class="bg-gray-900 text-gray-300 py-16">
-  <div class="container mx-auto px-6 grid md:grid-cols-4 gap-10">
+<footer class="glass mt-20 py-14">
+  <div class="container mx-auto px-6 grid md:grid-cols-4 gap-10 text-gray-300">
 
-    <!-- Brand -->
     <div>
-      <h3 class="text-2xl font-bold text-white mb-4">⚡ ChatVolt</h3>
-      <p class="text-gray-400">
-        AI-powered chatbot solution for websites. 
-        Automate support, boost leads & grow faster.
-      </p>
+      <h3 class="text-xl font-bold text-purple-400 mb-4">ChatVolt</h3>
+      <p>AI-powered WhatsApp automation platform.</p>
     </div>
 
-    <!-- Legal -->
     <div>
-      <h4 class="text-white font-semibold mb-4">Legal</h4>
+      <h4 class="font-semibold mb-4">Legal</h4>
       <ul class="space-y-2">
-        <li><a href="terms.html" class="hover:text-yellow-400">Terms & Conditions</a></li>
-        <li><a href="payment-policy.html" class="hover:text-yellow-400">Payment Policy</a></li>
-        <li><a href="shipping.html" class="hover:text-yellow-400">Shipping Policy</a></li>
+        <li><a href="terms.html" class="hover:text-purple-400">Terms</a></li>
+        <li><a href="payment-policy.html" class="hover:text-purple-400">Payment Policy</a></li>
+        <li><a href="shipping.html" class="hover:text-purple-400">Shipping</a></li>
       </ul>
     </div>
 
-    <!-- Company -->
     <div>
-      <h4 class="text-white font-semibold mb-4">Company</h4>
+      <h4 class="font-semibold mb-4">Company</h4>
       <ul class="space-y-2">
-        <li><a href="contact.html" class="hover:text-yellow-400">Contact Us</a></li>
+        <li><a href="contact.html" class="hover:text-purple-400">Contact</a></li>
+        <li><a href="pricing.html" class="hover:text-purple-400">Pricing</a></li>
       </ul>
     </div>
 
-    <!-- Contact Info -->
     <div>
-      <h4 class="text-white font-semibold mb-4">Support</h4>
-      <p>Email: support@chatvolt.ai</p>
-      <p class="mt-2">Available 24/7</p>
+      <h4 class="font-semibold mb-4">Support</h4>
+      <p>support@chatvolt.ai</p>
+      <p class="mt-2 text-green-400">Available 24/7</p>
     </div>
 
   </div>
 
-  <footer class="bg-gray-900 text-gray-300 py-10 mt-20">
-  <div class="container mx-auto px-6 text-center text-sm space-y-4">
-
-    <p class="font-semibold text-white">
-      © 2026 ChatWidgetPro
-    </p>
-
-    <div class="flex flex-wrap justify-center gap-6">
-
-      <a href="terms.html" class="hover:text-white">
-        Terms & Conditions
-      </a>
-
-      <a href="payment-policy.html" class="hover:text-white">
-        Payment Policy
-      </a>
-
-      <a href="shipping.html" class="hover:text-white">
-        Shipping Policy
-      </a>
-
-      <a href="contact.html" class="hover:text-white">
-        Contact Us
-      </a>
-
-    </div>
-
+  <div class="text-center text-gray-400 text-sm mt-12">
+    © 2026 ChatVolt. All rights reserved.
   </div>
 </footer>
 
- 
 </body>
 </html>
