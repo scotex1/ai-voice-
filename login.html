@@ -32,18 +32,18 @@
      class="w-14 absolute bottom-20 right-20 float-slow opacity-70">
 
 <!-- NAVBAR -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
+<header class="bg-white shadow-md sticky top-0 z-50">
   <div class="container mx-auto flex justify-between items-center p-4">
 
     <a href="index.html" class="text-2xl font-bold text-indigo-600">
-      ChatWidgetPro
+      ChatVolt
     </a>
 
     <div class="space-x-6 font-semibold text-gray-700">
       <a href="pricing.html" class="hover:text-indigo-600">Pricing</a>
       <a href="login.html" class="hover:text-indigo-600">Login</a>
       <a href="signup.html"
-         class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+         class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
          Get Started
       </a>
     </div>
@@ -54,7 +54,7 @@
 <!-- LOGIN SECTION -->
 <section class="flex items-center justify-center min-h-[calc(100vh-80px)] px-4">
   
-  <div class="bg-white/95 backdrop-blur-xl shadow-2xl rounded-2xl p-8 w-full max-w-md">
+  <div class="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md">
 
     <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6">
       Welcome Back
@@ -88,7 +88,7 @@
   </div>
 </section>
 
-<!-- FIREBASE AUTH (FUNCTIONS SAME) -->
+<!-- FIREBASE AUTH -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
   import { 
@@ -98,14 +98,14 @@
   } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
   const firebaseConfig = {
-    
-    projectId: 
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
   };
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
-  // LOGIN (same logic)
   document.getElementById("loginBtn").onclick = () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
@@ -115,7 +115,6 @@
       .catch(err => alert(err.message));
   };
 
-  // FORGOT PASSWORD (same logic)
   document.getElementById("forgotPassword").onclick = () => {
     const email = document.getElementById("email").value;
 
@@ -129,28 +128,30 @@
       .catch(err => alert(err.message));
   };
 </script>
-<footer class="bg-gray-900 text-gray-300 py-10 mt-20">
-  <div class="container mx-auto px-6 text-center text-sm space-y-4">
 
-    <p class="font-semibold text-white">
-      © 2026 ChatWidgetPro
-    </p>
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="container mx-auto px-6 text-center">
 
-    <div class="flex flex-wrap justify-center gap-6">
+    <h3 class="text-white text-lg font-semibold mb-4">
+      © 2026 ChatVolt
+    </h3>
 
-      <a href="terms.html" class="hover:text-white">
+    <div class="flex flex-wrap justify-center gap-6 text-sm">
+
+      <a href="terms.html" class="hover:text-white transition">
         Terms & Conditions
       </a>
 
-      <a href="payment-policy.html" class="hover:text-white">
+      <a href="payment-policy.html" class="hover:text-white transition">
         Payment Policy
       </a>
 
-      <a href="shipping.html" class="hover:text-white">
+      <a href="shipping.html" class="hover:text-white transition">
         Shipping Policy
       </a>
 
-      <a href="contact.html" class="hover:text-white">
+      <a href="contact.html" class="hover:text-white transition">
         Contact Us
       </a>
 
@@ -158,5 +159,6 @@
 
   </div>
 </footer>
+
 </body>
 </html>
