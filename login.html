@@ -1,49 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login | ChatVolt</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Login | ChatVolt</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    body { font-family: 'Poppins', sans-serif; }
+<style>
+body { font-family: 'Poppins', sans-serif; }
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0px); }
-    }
+/* Premium Blackberry Gradient */
+body {
+  background: linear-gradient(135deg, #1a002e, #2d004d, #4b0082);
+}
 
-    .float { animation: float 4s ease-in-out infinite; }
-    .float-slow { animation: float 6s ease-in-out infinite; }
-  </style>
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.float { animation: float 5s ease-in-out infinite; }
+.float-slow { animation: float 7s ease-in-out infinite; }
+
+/* Button glow */
+.glow:hover {
+  box-shadow: 0 0 25px rgba(255,255,255,0.4);
+  transform: translateY(-2px);
+}
+</style>
 </head>
 
-<body class="bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700 min-h-screen relative overflow-hidden">
+<body class="min-h-screen relative overflow-hidden text-white">
 
-<!-- FLOATING ICONS -->
+<!-- Floating Icons -->
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-     class="w-16 absolute top-20 left-20 float opacity-80">
+     class="w-16 absolute top-24 left-16 float opacity-20">
 
 <img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png"
-     class="w-14 absolute bottom-20 right-20 float-slow opacity-70">
+     class="w-14 absolute bottom-24 right-20 float-slow opacity-20">
 
 <!-- NAVBAR -->
-<header class="bg-white shadow-md sticky top-0 z-50">
-  <div class="container mx-auto flex justify-between items-center p-4">
+<header class="backdrop-blur-xl bg-white/10 border-b border-white/10 sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center p-5">
 
-    <a href="index.html" class="text-2xl font-bold text-indigo-600">
-      ChatVolt
+    <a href="index.html" class="text-2xl font-bold tracking-wide">
+      <span class="text-white">Chat</span>
+      <span class="text-purple-300">Volt</span>
     </a>
 
-    <div class="space-x-6 font-semibold text-gray-700">
-      <a href="pricing.html" class="hover:text-indigo-600">Pricing</a>
-      <a href="login.html" class="hover:text-indigo-600">Login</a>
+    <div class="space-x-6 font-medium text-gray-200">
+      <a href="pricing.html" class="hover:text-purple-300 transition">Pricing</a>
+      <a href="login.html" class="text-purple-300">Login</a>
       <a href="signup.html"
-         class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+         class="bg-purple-600 hover:bg-purple-700 px-5 py-2 rounded-full transition">
          Get Started
       </a>
     </div>
@@ -52,106 +65,66 @@
 </header>
 
 <!-- LOGIN SECTION -->
-<section class="flex items-center justify-center min-h-[calc(100vh-80px)] px-4">
-  
-  <div class="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md">
+<section class="flex items-center justify-center min-h-[calc(100vh-100px)] px-4">
 
-    <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6">
+  <div class="bg-white/10 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-3xl p-10 w-full max-w-md">
+
+    <h2 class="text-3xl font-bold text-center mb-8">
       Welcome Back
     </h2>
 
     <input id="email" type="email" placeholder="Email"
-      class="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none">
+      class="w-full mb-5 p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-400 outline-none placeholder-gray-300">
 
     <input id="password" type="password" placeholder="Password"
-      class="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none">
-  
-    <p class="text-right mb-4">
+      class="w-full mb-4 p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-400 outline-none placeholder-gray-300">
+
+    <p class="text-right mb-6">
       <a href="#" id="forgotPassword"
-         class="text-indigo-600 text-sm font-semibold hover:underline">
+         class="text-sm text-purple-300 hover:underline">
         Forgot Password?
       </a>
     </p>
 
     <button id="loginBtn"
-      class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition">
+      class="w-full bg-purple-600 glow font-semibold py-4 rounded-xl transition duration-300">
       Login
     </button>
 
-    <p class="text-center text-gray-600 mt-4">
+    <p class="text-center text-gray-300 mt-6">
       New here?
-      <a href="signup.html" class="text-indigo-600 font-semibold hover:underline">
+      <a href="signup.html" class="text-purple-300 hover:underline">
         Create account
       </a>
     </p>
 
   </div>
+
 </section>
 
-<!-- FIREBASE AUTH -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-  import { 
-    getAuth, 
-    signInWithEmailAndPassword,
-    sendPasswordResetEmail
-  } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  document.getElementById("loginBtn").onclick = () => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => window.location.href = "dashboard.html")
-      .catch(err => alert(err.message));
-  };
-
-  document.getElementById("forgotPassword").onclick = () => {
-    const email = document.getElementById("email").value;
-
-    if (!email) {
-      alert("Please enter your email first");
-      return;
-    }
-
-    sendPasswordResetEmail(auth, email)
-      .then(() => alert("Password reset link sent to your email 📩"))
-      .catch(err => alert(err.message));
-  };
-</script>
-
 <!-- FOOTER -->
-<footer class="bg-gray-900 text-gray-300 py-12">
-  <div class="container mx-auto px-6 text-center">
+<footer class="bg-black/40 backdrop-blur-xl border-t border-white/10 py-10 mt-16">
+  <div class="container mx-auto px-6 text-center text-sm text-gray-400 space-y-4">
 
-    <h3 class="text-white text-lg font-semibold mb-4">
+    <p class="font-semibold text-white">
       © 2026 ChatVolt
-    </h3>
+    </p>
 
-    <div class="flex flex-wrap justify-center gap-6 text-sm">
+    <div class="flex flex-wrap justify-center gap-6">
 
-      <a href="terms.html" class="hover:text-white transition">
+      <a href="terms.html" class="hover:text-purple-300 transition">
         Terms & Conditions
       </a>
 
-      <a href="payment-policy.html" class="hover:text-white transition">
+      <a href="payment-policy.html" class="hover:text-purple-300 transition">
         Payment Policy
       </a>
 
-      <a href="shipping.html" class="hover:text-white transition">
+      <a href="shipping.html" class="hover:text-purple-300 transition">
         Shipping Policy
       </a>
 
-      <a href="contact.html" class="hover:text-white transition">
+      <a href="contact.html" class="hover:text-purple-300 transition">
         Contact Us
       </a>
 
@@ -162,3 +135,4 @@
 
 </body>
 </html>
+  
