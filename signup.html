@@ -1,117 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Signup | ChatVolt</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Signup | ChatVolt</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    body { font-family: 'Poppins', sans-serif; }
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #14001f, #2b0040, #4b0082, #1a002e);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0px); }
-    }
+/* Animated Gradient */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    .float { animation: float 4s ease-in-out infinite; }
-    .float-slow { animation: float 6s ease-in-out infinite; }
-  </style>
+/* Floating blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.4;
+  animation: float 12s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+}
+
+/* Glow */
+.glow:hover {
+  box-shadow: 0 0 30px rgba(168,85,247,0.6);
+  transform: translateY(-3px);
+}
+</style>
 </head>
 
-<body class="bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-700 min-h-screen relative overflow-hidden">
+<body class="min-h-screen text-white relative overflow-hidden">
 
-<!-- FLOATING ICONS -->
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-     class="w-16 absolute top-20 right-20 float opacity-80">
-
-<img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png"
-     class="w-14 absolute bottom-20 left-20 float-slow opacity-70">
+<!-- BLUR BLOBS -->
+<div class="blob w-72 h-72 bg-purple-600 top-20 left-10"></div>
+<div class="blob w-72 h-72 bg-indigo-600 bottom-10 right-10"></div>
 
 <!-- NAVBAR -->
-<header class="bg-white/10 backdrop-blur-md shadow-md sticky top-0 z-50">
-  <div class="container mx-auto flex justify-between items-center p-4">
-    
-    <a href="index.html" class="text-2xl font-extrabold text-white">
-      ⚡ ChatVolt
+<header class="backdrop-blur-xl bg-white/10 border-b border-white/10 sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center p-5">
+    <a href="index.html" class="text-2xl font-bold tracking-wide">
+      <span class="text-white">Chat</span>
+      <span class="text-purple-300">Volt</span>
     </a>
-
     <a href="login.html"
-       class="bg-yellow-400 text-indigo-900 px-5 py-2 rounded-full font-bold hover:scale-105 transition">
+       class="border border-purple-400 text-purple-300 px-5 py-2 rounded-full hover:bg-purple-600 hover:text-white transition">
       Login
     </a>
-
   </div>
 </header>
 
 <!-- SIGNUP SECTION -->
-<section class="flex items-center justify-center py-20 px-4">
-  <div class="bg-white/95 backdrop-blur-xl shadow-2xl rounded-2xl p-8 w-full max-w-md">
+<section class="flex items-center justify-center min-h-[calc(100vh-100px)] px-4 relative z-10">
 
-    <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6">
-      Create Your Account
-    </h2>
-  
-    <input id="name" type="text" placeholder="Full Name"
-      class="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none">
+<div class="bg-white/10 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-3xl p-10 w-full max-w-md">
 
-    <input id="email" type="email" placeholder="Email"
-      class="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none">
+<h2 class="text-3xl font-bold text-center mb-8">
+Create Your Account
+</h2>
 
-    <input id="password" type="password" placeholder="Password"
-      class="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none">
+<input id="name" type="text" placeholder="Full Name"
+class="w-full mb-4 p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-400 outline-none placeholder-gray-300 transition">
 
-    <button id="signupBtn"
-      class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition">
-      Sign Up
-    </button>
+<input id="email" type="email" placeholder="Email"
+class="w-full mb-4 p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-400 outline-none placeholder-gray-300 transition">
 
-    <p class="text-center text-gray-600 mt-4">
-      Already have an account?
-      <a href="login.html" class="text-indigo-600 font-semibold hover:underline">
-        Login
-      </a>
-    </p>
+<div class="relative">
+<input id="password" type="password" placeholder="Password"
+class="w-full mb-2 p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-400 outline-none placeholder-gray-300 transition">
 
-  </div>
+<button type="button" onclick="togglePassword()" 
+class="absolute right-4 top-4 text-sm text-purple-300">
+Show
+</button>
+</div>
+
+<!-- Strength Meter -->
+<div class="w-full h-2 bg-white/10 rounded-full mb-4">
+  <div id="strengthBar" class="h-2 rounded-full bg-red-500 w-1/4 transition-all"></div>
+</div>
+
+<input id="confirmPassword" type="password" placeholder="Confirm Password"
+class="w-full mb-6 p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-400 outline-none placeholder-gray-300 transition">
+
+<button id="signupBtn"
+class="w-full bg-purple-600 glow font-semibold py-4 rounded-xl transition duration-300">
+Sign Up
+</button>
+
+<!-- Divider -->
+<div class="flex items-center my-6">
+  <div class="flex-grow border-t border-white/20"></div>
+  <span class="px-3 text-gray-300 text-sm">OR</span>
+  <div class="flex-grow border-t border-white/20"></div>
+</div>
+
+<!-- Google Button -->
+<button class="w-full bg-white text-gray-800 font-semibold py-4 rounded-xl hover:scale-105 transition">
+Sign up with Google
+</button>
+
+<p class="text-center text-gray-300 mt-6">
+Already have an account?
+<a href="login.html" class="text-purple-300 hover:underline">Login</a>
+</p>
+
+</div>
 </section>
 
-<!-- FIREBASE AUTH (FUNCTION SAME) -->  
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-  import { 
-    getAuth, 
-    createUserWithEmailAndPassword,
-    updateProfile 
-  } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+<!-- FOOTER -->
+<footer class="bg-black/40 backdrop-blur-xl border-t border-white/10 py-10 mt-16 relative z-10">
+<div class="container mx-auto px-6 text-center text-sm text-gray-400 space-y-4">
 
-  const firebaseConfig = {
-    apiKey: 
-  };
+<p class="font-semibold text-white">© 2026 ChatVolt</p>
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+<div class="flex flex-wrap justify-center gap-6">
+<a href="terms.html" class="hover:text-purple-300 transition">Terms</a>
+<a href="payment-policy.html" class="hover:text-purple-300 transition">Payment</a>
+<a href="shipping.html" class="hover:text-purple-300 transition">Shipping</a>
+<a href="contact.html" class="hover:text-purple-300 transition">Contact</a>
+</div>
 
-  document.getElementById("signupBtn").onclick = async () => {
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+</div>
+</footer>
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+<script>
+function togglePassword() {
+  const pass = document.getElementById("password");
+  pass.type = pass.type === "password" ? "text" : "password";
+}
 
-      await updateProfile(userCredential.user, {
-        displayName: name
-      });
+document.getElementById("password").addEventListener("input", function() {
+  const val = this.value;
+  const bar = document.getElementById("strengthBar");
 
-      window.location.href = "dashboard.html";
-    } catch (err) {
-      alert(err.message);
-    }
-  };
+  if (val.length < 4) {
+    bar.className = "h-2 rounded-full bg-red-500 w-1/4 transition-all";
+  } else if (val.length < 8) {
+    bar.className = "h-2 rounded-full bg-yellow-400 w-2/4 transition-all";
+  } else {
+    bar.className = "h-2 rounded-full bg-green-500 w-full transition-all";
+  }
+});
+
+document.getElementById("signupBtn").onclick = function() {
+  const pass = document.getElementById("password").value;
+  const confirm = document.getElementById("confirmPassword").value;
+
+  if (pass !== confirm) {
+    alert("Passwords do not match ❌");
+    return;
+  }
+
+  this.innerText = "Creating Account...";
+};
 </script>
 
 </body>
